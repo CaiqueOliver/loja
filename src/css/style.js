@@ -17,11 +17,32 @@ export const ProductsArea = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    button {
-      font-size: 25px;
-      backgroud: transparent;
-      border: none;
-      color: crimson;
+  }
+`;
+
+export const Button = styled.button`
+  button {
+    font-size: 20px;
+    backgroud: transparent;
+    border: none;
+    color: crimson;
+  }
+`;
+
+export const HeaderArea = styled.header`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 30px;
+  background-color: black;
+  padding: 20px 50px;
+  margin-bottom: 70px;
+  a {
+    text-decoration: none;
+    color: white;
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 `;
