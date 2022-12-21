@@ -1,55 +1,67 @@
 import React, { useState } from "react";
 import { setItem } from "./services/LocalStorageFuncs";
 import { getItem } from "./services/LocalStorageFuncs";
+import { CgProfile } from "react-icons/cg";
+import { LoginArea } from "../src/css/style";
 
 export const Login = (props) => {
-  const user = getItem("user");
-  const [name, setName] = useState(user.name || "");
-  const [pass, setPass] = useState(user.pass || "");
-  const [passIncorrect, setPassIncorrect] = useState(false);
+  const user = getItem("usuario");
 
-  const condition = name.length > 3 && pass.length > 5;
+  const [name, setName] = useState("");
+  const [pass, setPass] = useState("");
+  const [passIncorrect, setPassIncorret] = useState(false);
+
+  const cond = name.length > 3 && pass.length > 5;
+
   const saveUser = (name, pass) => {
     const {
       history: { push },
     } = props;
-    if (name === user.name && pass === user.pass) {
+    if (user) {
+      if (user.name.length > 0 && user.pass.length > 0) {
+        if (name === user.name && pass === user.pass) {
+          push("/store");
+        } else if (name === user.name && pass !== user.pass) {
+          setPassIncorret(true);
+        } else {
+          setItem("usuario", { name, pass });
+          push("/store");
+        }
+      }
+    } else {
+      setItem("usuario", { name, pass });
       push("/store");
-      return;
-    } else if (name === user.name && pass !== user.pass) {
-      setPassIncorrect(true);
-      return;
     }
-    setItem("user", { name, pass });
-    push("/store");
   };
 
   return (
-    <div>
-      <p>Login</p>
+    <LoginArea>
+      <span>
+        <CgProfile />
+      </span>
       <input
         type="text"
         onChange={({ target: { value } }) => setName(value)}
         value={name}
+        placeholder="Name"
       />
-      <p>Senha</p>
+
       <input
         type="password"
         onChange={({ target: { value } }) => setPass(value)}
         value={pass}
+        placeholder="Password"
       />
 
-      {passIncorrect && <p>Senha Incorreta</p>}
-
-      <br />
+      {passIncorrect && <p>Senha incorreta</p>}
 
       <button
         type="button"
         onClick={() => saveUser(name, pass)}
-        disabled={!condition}
+        disabled={!cond}
       >
-        Login
+        Sing In
       </button>
-    </div>
+    </LoginArea>
   );
 };

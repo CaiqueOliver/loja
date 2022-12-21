@@ -12,6 +12,7 @@ export const ProductsArea = styled.div`
     height: 320px;
     width: 230px;
     border: 1px solid rgb(194, 193, 193);
+    border-radius: 15px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -22,6 +23,7 @@ export const ProductsArea = styled.div`
 
 export const Button = styled.button`
   button {
+    border-radius: 15px;
     font-size: 20px;
     backgroud: transparent;
     border: none;
@@ -30,6 +32,8 @@ export const Button = styled.button`
 `;
 
 export const HeaderArea = styled.header`
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -43,6 +47,46 @@ export const HeaderArea = styled.header`
 
     &:hover {
       text-decoration: underline;
+    }
+  }
+`;
+
+export const LoginArea = styled.div`
+  width: 100vw;
+  height: 65vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 47px;
+  justify-content: center;
+  span {
+    font-size: 70px;
+  }
+  input {
+    background-color: #8080805f;
+    border: none;
+    border-radius: 10px;
+    border-bottom: 2px solid gray;
+    padding: 10px;
+    width: 15%;
+    outline: none;
+  }
+  button {
+    &:disabled {
+      opacity: 0.3;
+    }
+    padding: 10px 40px;
+    border: 2px solid red;
+    border-radius: 20px;
+    color: red;
+    font-weight: 800;
+    background-color: white;
+    &:not(:disabled) {
+      &:hover {
+        background-color: red;
+        color: white;
+        cursor: pointer;
+      }
     }
   }
 `;
