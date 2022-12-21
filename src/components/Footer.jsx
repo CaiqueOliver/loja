@@ -5,7 +5,7 @@ export const Foot = () => {
   return (
     <Footer>
       <footer>
-        <p>Desenvolvido por: Caique Oliveira</p>
+        <p>All rights reserved</p>
       </footer>
     </Footer>
   );

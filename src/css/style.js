@@ -7,7 +7,7 @@ export const ProductsArea = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 70px;
-  margin-top: 30px;
+  min-height: 100vh;
   div {
     height: 320px;
     width: 230px;
@@ -67,11 +67,14 @@ export const Footer = styled.footer`
     font-family: "Roboto", sans-serif;
     align-items: center;
     background-color: #a9a9a9;
-    // padding: 0.3px;
     width: 100%;
-    // height: 100px;
-    position: auto;
+    height: 2rem;
+    position: relative;
     bottom: 0;
+    left: 0;
+  }
+  p {
+    padding-top: 7px;
   }
 `;
 
@@ -83,6 +86,8 @@ export const LoginArea = styled.div`
   align-items: center;
   gap: 47px;
   justify-content: center;
+  min-height: 82vh;
+  width: 100%;
   span {
     font-size: 70px;
   }
