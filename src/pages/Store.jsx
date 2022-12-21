@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { MdFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
 import { BsFillCartCheckFill, BsFillCartPlusFill } from "react-icons/bs";
 import { getItem, setItem } from "../services/LocalStorageFuncs";
-import { ProductsArea, Button } from "../css/style";
+import { ProductsArea, Button, Container } from "../css/style";
 
 export const Store = () => {
   const [data, setData] = useState([]);
@@ -50,22 +50,27 @@ export const Store = () => {
             <h4>{e.title}</h4>
             <img src={e.thumbnail} alt="" />
             <h4>{`R$ ${e.price}`}</h4>
-            <Button>
-              <button onClick={() => handleClick(e)}>
-                {cart.some((itemCart) => itemCart.id === e.id) ? (
-                  <BsFillCartCheckFill />
-                ) : (
-                  <BsFillCartPlusFill />
-                )}
-              </button>
-              <button onClick={() => handleClicke(e)}>
-                {favorite.some((itemFavorite) => itemFavorite.id === e.id) ? (
-                  <MdOutlineFavorite />
-                ) : (
-                  <MdFavoriteBorder />
-                )}
-              </button>
-            </Button>
+
+            <Container>
+              <Button>
+                <button onClick={() => handleClick(e)}>
+                  {cart.some((itemCart) => itemCart.id === e.id) ? (
+                    <BsFillCartCheckFill />
+                  ) : (
+                    <BsFillCartPlusFill />
+                  )}
+                </button>
+              </Button>
+              <Button>
+                <button onClick={() => handleClicke(e)}>
+                  {favorite.some((itemFavorite) => itemFavorite.id === e.id) ? (
+                    <MdOutlineFavorite />
+                  ) : (
+                    <MdFavoriteBorder />
+                  )}
+                </button>
+              </Button>
+            </Container>
           </div>
         ))}
       </ProductsArea>

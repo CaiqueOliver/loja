@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { getItem, setItem } from "../services/LocalStorageFuncs";
 import { BsFillCartDashFill } from "react-icons/bs";
-import { ProductsArea, Button } from "../css/style";
+import { ProductsArea, Button, Container } from "../css/style";
 
 export const Cart = () => {
   const [data, setData] = useState(getItem("carrinho") || []);
@@ -23,11 +23,13 @@ export const Cart = () => {
             <h4>{e.title}</h4>
             <img src={e.thumbnail} alt={e.title} />
             <h4>{`R$ ${e.price}`}</h4>
-            <Button>
-              <button onClick={() => removeItem(e)}>
-                <BsFillCartDashFill />
-              </button>
-            </Button>
+            <Container>
+              <Button>
+                <button onClick={() => removeItem(e)}>
+                  <BsFillCartDashFill />
+                </button>
+              </Button>
+            </Container>
           </div>
         ))}
       </ProductsArea>

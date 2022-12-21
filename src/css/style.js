@@ -11,7 +11,7 @@ export const ProductsArea = styled.div`
   div {
     height: 320px;
     width: 230px;
-    border: 1px solid rgb(194, 193, 193);
+    border: 2px solid rgb(194, 193, 193);
     border-radius: 15px;
     display: flex;
     justify-content: space-between;
@@ -21,13 +21,22 @@ export const ProductsArea = styled.div`
   }
 `;
 
+export const Container = styled.span`
+  button {
+    border-radius: 10px;
+    border: none;
+    margin: 10px;
+  }
+`;
+
 export const Button = styled.button`
   button {
-    border-radius: 15px;
     font-size: 20px;
     backgroud: transparent;
     border: none;
     color: crimson;
+    display: flex;
+    justify-content: space-between;
   }
 `;
 
@@ -48,6 +57,21 @@ export const HeaderArea = styled.header`
     &:hover {
       text-decoration: underline;
     }
+  }
+`;
+
+export const Footer = styled.footer`
+  footer {
+    font-size: 14px;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    align-items: center;
+    background-color: #a9a9a9;
+    // padding: 0.3px;
+    width: 100%;
+    // height: 100px;
+    position: auto;
+    bottom: 0;
   }
 `;
 
